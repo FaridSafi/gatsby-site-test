@@ -150,6 +150,23 @@ you can see the full file [here](./.travis.yml)
 S3 is use to host your files.
 Just create a bucket which have the name of your project.
 
+# Authorizations
+## Create your own strategy
+We need to authorize everyone to see every file in the bucket so:
 
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::gatsby-site-test/*"
+        }
+    ]
+}
+```
 
 And that's all ! Enjoyed !
