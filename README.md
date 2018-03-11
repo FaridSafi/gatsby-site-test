@@ -79,10 +79,10 @@ git push --set-upstream origin develop
         - Require pull request reviews before merging
 
 ## DO NOT FORGET
- - certif ssl ;   <------- 
+ - certificat ssl ;   <------- 
  - Add a robot.txt to block robot to index the site:
-    - just create a robot.txt file at the root of your site . http://robots-txt.com ;
- - gitignore <------
+    - just create a robot.txt file at the root of your site http://robots-txt.com ;
+ - Do not forget to add a ``.gitignore`` file to not push the build project;
 
 # Travis
 
