@@ -1,5 +1,6 @@
-install: 
+before_install:
   npm install --global gatsby-cli
+install: 
   npm install
 script: 
   gatsby build
