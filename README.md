@@ -27,6 +27,32 @@ cd gatsby-site-test
 npm run build
 ```
 
+## Deploy on gihub
+
+**Before all, create your own github repository.**
+
+```sh
+git init
+```
+
+```sh
+git add -A
+```
+
+```sh
+git commit -m "first commit"
+```
+
+```sh
+git remote add origin https://github.com/MisterAlex95/gatsby-site-test.git
+```
+
+```sh
+git push -u origin master
+```
+
+Create a second branch named ``develop``
+
 ## Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
