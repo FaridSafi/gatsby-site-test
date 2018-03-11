@@ -19,7 +19,7 @@ gatsby new gatsby-site-test
 Then you can run it by:
 ```sh
 cd gatsby-site-test
-npm run develop
+gatsby develop
 ```
 
 To build it: 
@@ -59,13 +59,6 @@ Create a second branch named ``develop``
 ```sh
 git checkout -b develop 
 ```
-```sh
-git add -A
-```
-
-```sh
-git commit -m "first commit into develop"
-```
 
 ```sh
 git push --set-upstream origin develop
@@ -90,25 +83,23 @@ git push --set-upstream origin develop
 ## In travis-ci.org
  - create an account and authorize travis ;
  - select the repository you want ;
- - In Settings:
+ - In Settings, select :
     - Build pushed branches ;
     - All auto cancellation ;
 
 ## In your project
  - install travis using brew: ``brew install travis`` ;
+ - `travis login --pro`
+ - `touch .travis.yml`
  - run ``travis setup s3`` and follow it ;
+    - local project directory to upload : `public`
+    - S3 ACL Settings : `bucket_owner_full_control`
  - A new file appear at the root of your project: ``.travis.yml``
  - You will need to add some options into this file: 
-    - specified the branch you wanted to build and deploy:
-        ```yml
-        branches:
-            only:
-            - master
-        ```  
     - specified the language you wanted to use:
         ```yml
-        language: node_jd
-        node_js: '6'
+        language: node_js
+        node_js: '8'
         ```
     - specified the tools you wanted to use and cache:
         ```yml
@@ -124,9 +115,15 @@ git push --set-upstream origin develop
     - specified the script you want to run after the installation of all dependancies:
         ```yml
         script: 
-            gatsby build
+            gatsby build;
             cp ./robot.txt public/
         ```
+    - specified the branch you wanted to build and deploy:
+        ```yml
+        branches:
+            only:
+            - master
+        ```  
     - Add some options into the deploy configuration:
         ```yml
         deploy:
