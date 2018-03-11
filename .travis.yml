@@ -1,6 +1,8 @@
-language: node_js
-install: yarn global add gatsby-cli yarn install
-script: gatsby build
+install: 
+  npm install --global gatsby-cli
+  npm install
+script: 
+  gatsby build
 deploy:
   provider: s3
   access_key_id: AKIAJPXLN53JXUTZDQTQ
