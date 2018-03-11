@@ -27,9 +27,9 @@ cd gatsby-site-test
 npm run build
 ```
 
-## Deploy on gihub
+# Gihub
 
-**Before all, create your own github repository.**
+## Create your repo
 
 ```sh
 git init
@@ -51,7 +51,43 @@ git remote add origin https://github.com/MisterAlex95/gatsby-site-test.git
 git push -u origin master
 ```
 
+## Create a ``develop``branch
+
 Create a second branch named ``develop``
+
+```sh
+git checkout -b develop 
+```
+```sh
+git add -A
+```
+
+```sh
+git commit -m "first commit into develop"
+```
+
+```sh
+git push --set-upstream origin develop
+```
+
+## Configure your github
+
+ - go to Settings
+ - go to Branches
+ - Select :
+    - Protect this branch
+        - Require pull request reviews before merging
+
+## DO NOT FORGET
+ - certif ssl ;
+ - Add a robot.txt to block robot to index the site:
+    - just create a robot.txt file at the root of your site . http://robots-txt.com ;
+
+
+
+# Amazon Web Services
+
+
 
 ## Deploy
 
