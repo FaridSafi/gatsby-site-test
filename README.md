@@ -74,8 +74,8 @@ git push --set-upstream origin develop
 
 ## DO NOT FORGET
  - certificat ssl ;   <------- 
- - Add a robot.txt to block robot to index the site:
-    - just create a robot.txt file at the root of your site http://robots-txt.com ;
+ - Add a robots.txt to block robots to index the site:
+    - just create a robots.txt file at the root of your site http://robots-txt.com ;
  - Do not forget to add a ``.gitignore`` file to not push the build project;
 
 # Travis
@@ -115,8 +115,7 @@ git push --set-upstream origin develop
     - specified the script you want to run after the installation of all dependancies:
         ```yml
         script: 
-            gatsby build;
-            cp ./robot.txt public/
+            gatsby build && cp ./robots.txt public/
         ```
     - specified the branch you wanted to build and deploy:
         ```yml
@@ -166,5 +165,7 @@ We need to authorize everyone to see every file in the bucket so:
     ]
 }
 ```
+## Amazon S3 Static Website Settings
+  - Utiliser ce compartiment pour héberger un site Web
 
 And that's all ! Enjoyed !
