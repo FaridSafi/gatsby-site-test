@@ -9,7 +9,7 @@ cache:
 install: 
   yarn install
 script:
-  gatsby build
+  gatsby build;
   cp ./robot.txt public/
 deploy:
   provider: s3
