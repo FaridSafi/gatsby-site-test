@@ -82,10 +82,67 @@ git push --set-upstream origin develop
  - certif ssl ;   <------- 
  - Add a robot.txt to block robot to index the site:
     - just create a robot.txt file at the root of your site . http://robots-txt.com ;
- - gitignore
-## Travis
+ - gitignore <------
 
+# Travis
 
+## In travis-ci.org
+ - create an account and authorize travis ;
+ - select the repository you want ;
+ - In Settings:
+    - Build pushed branches ;
+    - All auto cancellation ;
+
+## In your project
+ - install travis using brew: ``brew install travis`` ;
+ - run ``travis setup s3`` and follow it ;
+ - A new file appear at the root of your project: ``.travis.yml``
+ - You will need to add some options into this file: 
+    - specified the branch you wanted to build and deploy:
+        ```yml
+        branches:
+            only:
+            - master
+        ```  
+    - specified the language you wanted to use:
+        ```yml
+        language: node_jd
+        node_js: '6'
+        ```
+    - specified the tools you wanted to use and cache:
+        ```yml
+        cache: 
+            yarn
+            gatsby-cli
+        ```
+    - specified the install process of your project
+        ```yml
+        install: 
+            yarn install
+        ```
+    - specified the script you want to run after the installation of all dependancies:
+        ```yml
+        script: 
+            gatsby build
+            cp ./robot.txt public/
+        ```
+    - Add some options into the deploy configuration:
+        ```yml
+        deploy:
+            provider: s3
+            access_key_id: <ALREADY GENERATED>
+            secret_access_key:
+                secure: <ALREADY GENERATED>
+            bucket: gatsby-site-test
+            local_dir: public
+            skip_cleanup: true
+            region: eu-west-3
+            acl: 'bucket_owner_full_control'
+            on:
+                repo: MisterAlex95/gatsby-site-test
+        ```
+
+you can see the full file [here](./.travis.yml)
 
 # Amazon Web Services
 
@@ -93,26 +150,6 @@ git push --set-upstream origin develop
 S3 is use to host your files.
 Just create a bucket which have the name of your project.
 
-## CodeBuild
-
-We will use codebuild to get the code of your site from github.
- - Configue:
-     - name of your project ;
- - Source:
-    - your storage service (for us it's github) ;
-    - connect to your github ;
-    - select your project ;
-    - select complete git clone ;
-    - select Webhook ;
- - Env:
-    - use an aws codebuild image ;
-    - systeme: ubuntu ;
-    - execution : nodejs ;
-    - version: the last one ;
-    - insert command line command ;
-    - 
 
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+And that's all ! Enjoyed !

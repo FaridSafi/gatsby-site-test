@@ -7,9 +7,10 @@ cache:
   yarn
   gatsby-cli
 install: 
-  npm install
+  yarn install
 script:
   gatsby build
+  cp ./robot.txt public/
 deploy:
   provider: s3
   access_key_id: AKIAJPXLN53JXUTZDQTQ
