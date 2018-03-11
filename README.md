@@ -24,7 +24,7 @@ npm run develop
 To build it: 
 ```sh
 cd gatsby-site-test
-npm run build
+gatsby build
 ```
 
 # Gihub
@@ -79,14 +79,38 @@ git push --set-upstream origin develop
         - Require pull request reviews before merging
 
 ## DO NOT FORGET
- - certif ssl ;
+ - certif ssl ;   <------- 
  - Add a robot.txt to block robot to index the site:
     - just create a robot.txt file at the root of your site . http://robots-txt.com ;
+
+## Travis
 
 
 
 # Amazon Web Services
 
+## S3 
+S3 is use to host your files.
+Just create a bucket which have the name of your project.
+
+## CodeBuild
+
+We will use codebuild to get the code of your site from github.
+ - Configue:
+     - name of your project ;
+ - Source:
+    - your storage service (for us it's github) ;
+    - connect to your github ;
+    - select your project ;
+    - select complete git clone ;
+    - select Webhook ;
+ - Env:
+    - use an aws codebuild image ;
+    - systeme: ubuntu ;
+    - execution : nodejs ;
+    - version: the last one ;
+    - insert command line command ;
+    - 
 
 
 ## Deploy
