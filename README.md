@@ -1,3 +1,4 @@
+<img src='https://travis-ci.org/MisterAlex95/gatsby-site-test.svg?branch=master' />
 # gatsby-starter-default
 The default Gatsby starter.
 
