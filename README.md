@@ -82,7 +82,7 @@ git push --set-upstream origin develop
  - certif ssl ;   <------- 
  - Add a robot.txt to block robot to index the site:
     - just create a robot.txt file at the root of your site . http://robots-txt.com ;
-
+ - gitignore
 ## Travis
 
 
